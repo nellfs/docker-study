@@ -21,15 +21,15 @@ app.get("/", (req, res) => {
         </head>
         <body>
         <section>
-            <h2>My Course Goal</h2>
+            <h2>My goal</h2>
             <h3>${userGoal}</h3>
         </section>
         <form action="/store-goal" method = "POST">
             <div class="form-control">
-            <label>Course Goal</label>
+            <label>Goal</label>
             <input type="text" name="goal">
             </div>
-            <button>Set Course Goal</button>
+            <button>Set goal</button>
         </form>
         </body>
     </html>
