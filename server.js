@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.unsubscribe(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static("public"));
 app.use("/feedback", express.static("feedback"));
@@ -28,7 +28,7 @@ app.post("/create", async (req, res) => {
 
   const adjTitle = title.toLowerCase();
 
-  const tempFilePath = path.join(__dirname, "temp", adjTitle + ".text");
+  const tempFilePath = path.join(__dirname, "temp", adjTitle + ".txt");
   const finalFilePath = path.join(__dirname, "feedback", adjTitle + ".txt");
 
   await fs.writeFile(tempFilePath, content);
@@ -36,8 +36,10 @@ app.post("/create", async (req, res) => {
     if (exists) {
       res.redirect("/exists");
     } else {
-      await fs.reanem(tempFilePath, finalFilePath);
+      await fs.rename(tempFilePath, finalFilePath);
       res.redirect("/");
     }
   });
 });
+
+app.listen(8080);
