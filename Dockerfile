@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . . 
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD ["node", "server.js"]
+#VOLUME [ "/app/node_modules" ]
+
+CMD ["npm", "start"]
