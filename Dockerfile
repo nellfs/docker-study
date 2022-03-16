@@ -1,15 +1,15 @@
-FROM node:16
+FROM node:lts
 
 WORKDIR /app
 
 COPY package.json .
 
-RUN npm install
+RUN npm install 
 
 COPY . . 
 
 EXPOSE 8080
 
-#VOLUME [ "/app/node_modules" ]
+VOLUME [ "/app/node_modules" ]
 
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]
