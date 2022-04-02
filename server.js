@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use("/feedback", express.static("feedback"));
 
-console.log("on");
+console.log("Test");
 
 fs.writeFile("feedback/mynewfile3.txt", "Hello content!", function (err) {
   if (err) throw err;

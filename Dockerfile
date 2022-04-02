@@ -6,6 +6,7 @@ COPY package.json .
 
 RUN npm install 
 RUN mkdir feedback
+RUN mkdir temp
 
 COPY . . 
 
