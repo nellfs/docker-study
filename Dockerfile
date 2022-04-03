@@ -12,5 +12,7 @@ COPY . .
 
 EXPOSE 8080
 
+VOLUME ["/app/temp"]
+
 CMD [ "npm", "start" ]
 

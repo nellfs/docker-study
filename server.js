@@ -12,22 +12,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use("/feedback", express.static("feedback"));
 
-console.log("Test");
+console.log("Tested!");
 
-fs.writeFile("feedback/mynewfile3.txt", "Hello content!", function (err) {
+fs.writeFile("feedback/testfile.txt", "Working!", function (err) {
   if (err) throw err;
   console.log("Saved!");
 });
-
-// const tt = path.join(__dirname, "temp", "temp" + ".txt");
-
-// console.log(tt);
-// fs.writeFile(tt, "temped!");
-
-// const tf = path.join(__dirname, "feedback", "feedback" + ".txt");
-
-// console.log(tf);
-// fs.writeFile(tf, "feedbacked!");
 
 app.get("/", (req, res) => {
   const filePath = path.join(__dirname, "pages", "feedback.html");
